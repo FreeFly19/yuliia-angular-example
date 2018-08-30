@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://freefly19.com",
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "secure": false
+  }
+}

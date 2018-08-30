@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  phrases: PhraseDto[] = [];
+
+  constructor(private http: HttpClient) {
+    http.get<PhraseDto[]>('/api/phrases')
+      .subscribe(res => this.phrases = res);
+  }
+}
+
+interface PhraseDto {
+  id: number;
+  text: string;
+  translations: any[];
 }
